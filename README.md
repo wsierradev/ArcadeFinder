@@ -23,6 +23,6 @@ Things you may want to cover:
 
 * ...
 
-![Build Status](https://codeship.com/projects/e8445530-e4b2-0134-df21-1a21b10cf849/status?branch=master)
-![Code Climate](https://codeclimate.com/github/picholasnaridon/unboxing-reviews.png)
-![Coverage Status](https://coveralls.io/repos/picholasnaridon/unboxing-reviews/badge.png)
+![Build Status](https://codeship.com/projects/9b99ec30-ef7d-0134-dc5d-06835e321a69/status?branch=master)
+![Code Climate](https://codeclimate.com/github/wsierradev/ArcadeFinder.png)
+![Coverage Status](https://coveralls.io/repos/wsierradev/ArcadeFinder/badge.png)
