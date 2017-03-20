@@ -1,4 +1,4 @@
 class Userarcade < ApplicationRecord
-  belongs_to :users
-  belongs_to :arcades
+  belongs_to :user
+  belongs_to :arcade
 end

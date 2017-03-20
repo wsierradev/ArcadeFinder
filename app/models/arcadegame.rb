@@ -1,5 +1,5 @@
 class Arcadegame < ApplicationRecord
-  belongs_to :games
-  belongs_to :arcades
+  belongs_to :game
+  belongs_to :arcade
 
 end
