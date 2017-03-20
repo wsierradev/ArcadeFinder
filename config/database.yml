@@ -23,13 +23,13 @@ default: &default
 
 development:
   <<: *default
-  database: unboxing-reviews_development
+  database: arcade-finder_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user that initialized the database.
-  #username: unboxing-reviews
+  #username: arcade-finder
 
   # The password associated with the postgres role (username).
   #password:
@@ -57,7 +57,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: unboxing-reviews_test
+  database: arcade-finder_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: unboxing-reviews_production
-  username: unboxing-reviews
-  password: <%= ENV['UNBOXING-REVIEWS_DATABASE_PASSWORD'] %>
+  database: arcade-finder_production
+  username: arcade-finder
+  password: <%= ENV['ARCADE-FINDER_DATABASE_PASSWORD'] %>

@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'Sign Up' , %Q{
   As an authenticated user
   I want to sign up
-  So that I can add items and reviews
+  So that I can contribute to the site
 } do
 
   # * Acceptance CRITERIA
