@@ -3,7 +3,6 @@ class GamesController < ApplicationController
     @game = Game.new
     @games = Game.all
     @gameslist = @games.map { |game| game.name }.sort.uniq
-
   end
 
   def new
@@ -14,7 +13,6 @@ class GamesController < ApplicationController
     # @arcade = Arcade.find(params[:id])
     @game = Game.new(game_params)
     @game = @arcade.games.build(game_params)
-
 
     if @game.save
       # binding.pry

@@ -13,13 +13,11 @@ class ArcadesController < ApplicationController
     @arcade = Arcade.find(params[:id])
     @arcadegames = Arcadegame.where(arcade_id: @arcade.id)
     @game = Game.new
-    @games = @arcade.games#.order(created_at: :desc)
-
-    end
+    @games = @arcade.games #.order(created_at: :desc)
+  end
 
   def create
     @arcade = Arcade.new(arcade_params)
-
 
     if @arcade.save
       flash[:notice] = "Item added successfully"
@@ -31,6 +29,7 @@ class ArcadesController < ApplicationController
   end
 
   private
+
   def arcade_params
     params.require(:arcade).permit(:name, :street1, :street2, :city, :state, :zip)
   end
