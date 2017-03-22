@@ -12,4 +12,91 @@
  *
  *= require_tree .
  *= require_self
+ *= require foundation_and_overrides
+
  */
+ .smaller-text{
+   font-family: 'Press Start 2P', cursive;
+   text-shadow: steelblue 2px 2px;
+ }
+ .arcade-header{
+   text-align: center;
+ }
+.bit-text {
+  font-family: 'Press Start 2P', cursive;
+  text-shadow: steelblue 2px 5px;
+
+}
+
+ @import url("//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css");
+body { margin: auto; }
+.search {
+  position: relative;
+  color: #aaa;
+  font-size: 15px;
+}
+
+.search input {
+  width: 250px;
+  height: 32px;
+
+  background: #fcfcfc;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+}
+
+.search input { text-indent: 32px; font-family: 'Press Start 2P', cursive;}
+.search .fa-search {
+  position: absolute;
+  top: 7px;
+  left: 10px;
+}
+.top-bar{
+  font-family: 'Press Start 2P', cursive;
+}
+.headline {
+  font-family: 'Press Start 2P', cursive;
+ }
+ .header {
+   width:100%;
+   text-align: center;
+   background-image: url(http://i.imgur.com/e0FM4XI.jpg);
+   background-size:  100% ;
+   background-repeat: no-repeat;
+   text-align: center;
+   position: relative;
+   overflow: scroll;
+   padding-top: 2.5rem;
+   padding-bottom: 4.9rem; }
+   .header .headline {
+     text-shadow: white 2px 5px;
+
+     color: #ffe; }
+
+ .header-subnav {
+   font-family: 'Press Start 2P', cursive;
+   float: none;
+   position: absolute;
+   text-align: center;
+   margin: 0 auto;
+   bottom: 0;
+   width: 100%; }
+   .header-subnav li {
+     float: none;
+     display: inline-block; }
+     .header-subnav li a {
+       padding: 0.9rem 1rem;
+       font-size: 0.75rem;
+       color: #ffe;
+       text-shadow: black 2px 5px;
+       text-transform: uppercase;
+       display: block;
+       font-weight: bold;
+       letter-spacing: 1px;
+       transition: all 0.35s ease-in-out; }
+       .header-subnav li a.is-active {
+         background: rgba(250, 250, 250, 0.15); }
+       .header-subnav li a:hover {
+         background: rgba(250, 250, 250, 0.15);
+         transition: all 0.35s ease-in-out; }
