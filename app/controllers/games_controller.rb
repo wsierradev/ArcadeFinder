@@ -10,12 +10,12 @@ class GamesController < ApplicationController
   end
 
   def create
-    # @arcade = Arcade.find(params[:id])
-    @game = Game.new(game_params)
+
+    @arcade = Arcade.find(params[:arcade_id])
     @game = @arcade.games.build(game_params)
 
     if @game.save
-      # binding.pry
+      @arcade.games << @game
       flash[:notice] = "Game added successfully"
       redirect_to arcade_path(@arcade.id)
     else

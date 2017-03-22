@@ -1,0 +1,20 @@
+<% if game.id %>
+
+  <p>
+    <strong class="smaller-text">Name:</strong>
+    <%=link_to game.name , game_path(game.id), class: "button" %>
+  </p>
+
+  <p>
+    <strong>Quantity:</strong>
+    <%= game.quantity %>
+  </p>
+  <p>
+    <strong>Working?:</strong>
+    <%= game.working? %>
+  </p>
+
+  <p class="created_at">Added:
+    <%= game.created_at %>
+  </p>
+<% end %>
