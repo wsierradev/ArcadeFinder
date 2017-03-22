@@ -16,13 +16,19 @@ ActiveRecord::Schema.define(version: 20170320101746) do
   enable_extension "plpgsql"
 
   create_table "arcadegames", force: :cascade do |t|
+    t.integer  "arcade_id"
+    t.integer  "game_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "arcades", force: :cascade do |t|
     t.string   "name",       null: false
-    t.string   "address",    null: false
+    t.string   "street1",    null: false
+    t.string   "street2"
+    t.string   "city",       null: false
+    t.string   "state",      null: false
+    t.string   "zip",        null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

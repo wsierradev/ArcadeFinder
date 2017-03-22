@@ -1,0 +1,24 @@
+<vcard><h1> <%= @arcade.name %> </h1>
+<p> <%= @arcade.street1 %> </p>
+<% unless @arcade.street2.nil? %>
+<% @arcade.street2 %>
+<% end %>
+<p> <%= @arcade.city %> </p>
+<p> <%= @arcade.state %> </p>
+<p> <%= @arcade.zip %> </p>
+<div class="small-12 medium-12 large-7 columns">
+<h1 class="smaller-text">Games</h1>
+<%@arcadegames.all.each do |arcadegame| %>
+<p class=smaller-text>
+  <%= link_to "#{arcadegame.game.name}", game_path(arcadegame.game_id), class: "button" %>
+  <%=arcadegame.game.quantity%>
+  <%=arcadegame.game.working?%></p>
+<%end%></div>
+<div class="row">
+    <div class="small-6 small-offset-3 columns">
+<% if signed_in?%>
+<h1 class=smaller-text>Add a game</h1>
+<%= render "games/form", arcade: @arcade, game: @game %>
+<%end%>
+  </div>
+</div>
