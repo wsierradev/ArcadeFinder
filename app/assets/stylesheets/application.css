@@ -15,6 +15,20 @@
  *= require foundation_and_overrides
 
  */
+.add-arcade{
+  text-align: center;
+  font-family: 'Press Start 2P', cursive;
+  text-shadow: gray 2px 2px;
+}
+
+li {
+  list-style: none;
+}
+ .shadow{
+   box-shadow: gray 4px 4px;
+   border-radius: 2px;
+ }
+
  .smaller-text{
    font-family: 'Press Start 2P', cursive;
    text-shadow: steelblue 2px 2px;

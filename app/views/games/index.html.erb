@@ -1,9 +1,10 @@
 <div class="small-6 small-centered columns">
 <br>
 <h1 class="bit-text arcade-header">Games</h1>
-<% @games.each do |game| %>
-<h4 class="smaller-text"><%= link_to game.name.capitalize, game_path(game.id), class: "button expanded" %></h4>
-<h2><%=game.arcades.all%></h2>
+<% @sortedgames.each do |game| %>
+<h4 class="smaller-text shadow">
+  <%= link_to game.name.split('-').map(&:titleize).join('-'), game_path(game.id), class: "button expanded", style: "border-radius: 2px;"%>
+</h4>
 <%end%>
 
 

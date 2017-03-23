@@ -2,6 +2,7 @@ class GamesController < ApplicationController
   def index
     @game = Game.new
     @games = Game.all
+    @sortedgames = @games.sort_by {|game| game.name.downcase}
     @gameslist = @games.map { |game| game.name }.sort.uniq
   end
 
@@ -10,11 +11,12 @@ class GamesController < ApplicationController
   end
 
   def create
-
     @arcade = Arcade.find(params[:arcade_id])
     @game = @arcade.games.build(game_params)
 
     if @game.save
+      # if Game.where(:name => @arcade.games.name).blank?
+      # binding.pry
       @arcade.games << @game
       flash[:notice] = "Game added successfully"
       redirect_to arcade_path(@arcade.id)
@@ -26,7 +28,6 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
-    # @arcade = Arcadegame.find(params[:game_id])
   end
 
   private

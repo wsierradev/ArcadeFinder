@@ -22,12 +22,7 @@
 <%end%>
   </div>
 </div>
-<div class="top-bar">
-  <div class="top-bar-left">one
-    <div class="top-bar-middle">two
-      <div class="top-bar-right">three
-      </div>
-    </div>
-  </div>
+
+<div class="row small-up-2 medium-up-3 games-test">
+<%= render(partial: @game, layout: "game-cards", collection: @games) || "No games yet!!!! Be the first to add one." %>
 </div>
-<%= render partial: @game, collection: @games %>

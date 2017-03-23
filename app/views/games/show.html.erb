@@ -2,4 +2,4 @@
 <!-- Api data goes here -->
 </div>
 <br>
-<h1 class="bit-text arcade-header"> <%= @game.name %> </h1>
+<h1 class="bit-text arcade-header"> <%= @game.name.split('-').map(&:titleize).join('-') %> </h1>

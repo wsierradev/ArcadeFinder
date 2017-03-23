@@ -3,13 +3,15 @@
 <br>
 <h1 class="bit-text arcade-header">Arcades</h1>
 
-<div class="bit-text arcade-header"><%= link_to "Add New Arcade", new_arcade_path %></div>
+<div class="add-arcade"><%= link_to "Add New Arcade", new_arcade_path %></div>
 <br>
 <% @states.each do |state| %>
 <h2 class="bit-text"><%=state%></h2>
   <% @arcades.each do |arcade| %>
     <%if arcade.state == state%>
-      <li class="smaller-text" style="list-style: none;"><%= link_to arcade.name.capitalize, arcade_path(arcade.id), class: "button expanded" %></li>
+      <li class="smaller-text shadow">
+        <%= link_to arcade.name.split('-').map(&:titleize).join('-'), arcade_path(arcade.id), class: "button expanded", style: "border-radius: 2px;"%>
+      </li>
     <%end%>
   <%end%>
 <%end%>
