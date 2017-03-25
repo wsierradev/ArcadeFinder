@@ -160,6 +160,10 @@ body { margin: auto; }
   font-family: 'Press Start 2P', cursive;
   margin-left: 200px;
   margin-right: 200px;
+  border-left: solid 3px navy;
+  border-right: solid 3px navy;
+  border-top: solid 3px navy;
+
 }
 
 .main-content {

@@ -1,9 +1,12 @@
+<div class="main-content main-content-bg">
+<body>
+<div class="row">
 <div class="small-6 small-offset-3 columns">
 <!-- Api data goes here -->
 </div>
 <br>
 <h1 class="bit-text arcade-header"> <%= @game.name.split('-').map(&:titleize).join('-') %> </h1>
-<h4 class="smaller-text arcade-header"> Quantity: <%=@arcadegames.count%> machines across <%=@game.arcades.distinct.count%> Arcades</h2>
+<h4 class="smaller-text arcade-header"> Quantity: <%=@arcadegames.count%> <%="machine".pluralize(@arcadegames.count)%> across <%=@game.arcades.distinct.count%> <%="Arcade".pluralize(@game.arcades.distinct.count)%></h2>
 <%@game.arcades.distinct.each do |arcade|%>
 <%@gamecount = @arcadegames.select{|num| num.arcade_id == arcade.id}.uniq.count%>
 
@@ -25,6 +28,8 @@
 </div>
 
 
+
+
 <div class="row">
     <div class="small-6 small-offset-3 columns">
         <div class="card">
@@ -35,6 +40,9 @@
         </div>
       </div>
   </div>
+</div>
+</div>
+</body>
 </div>
 <% end %>
 
