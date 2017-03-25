@@ -1,5 +1,10 @@
+<div class="main-content main-content-bg">
+<body>
 <div class="row">
-    <div class="small-6 small-offset-3 columns">
+  <br>
+  <h1 class="bit-text arcade-header"> New Arcade Form </h1>
+  <br>
+    <div class="small-6 small-centered columns">
       <%= form_for (@arcade) do |f| %>
       <% if arcade.errors.any? %>
        <div id="error_explanation">
@@ -33,7 +38,9 @@
        <%= f.text_field :zip %>
        </div>
 
-       <%= f.submit "Add Arcade", class: "smaller-text"%>
+       <%= f.submit "Add Arcade", class: "smaller-text button expanded"%>
       <% end %>
     </div>
   </div>
+</body>
+</div>

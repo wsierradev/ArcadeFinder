@@ -15,7 +15,9 @@
  *= require foundation_and_overrides
 
  */
-
+#myvideo{
+  margin-top: -30px
+}
 .right {
   float: right;
 }
