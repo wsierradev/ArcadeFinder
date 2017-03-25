@@ -3,3 +3,41 @@
 </div>
 <br>
 <h1 class="bit-text arcade-header"> <%= @game.name.split('-').map(&:titleize).join('-') %> </h1>
+<h4 class="smaller-text arcade-header"> Quantity: <%=@arcadegames.count%> machines across <%=@game.arcades.distinct.count%> Arcades</h2>
+<%@game.arcades.distinct.each do |arcade|%>
+<%@gamecount = @arcadegames.select{|num| num.arcade_id == arcade.id}.uniq.count%>
+
+<div class="row">
+    <div class="small-6 small-offset-3 columns">
+      <%= link_to arcade_path(arcade.id) do %>
+        <div class="card">
+          <img src="http://images.freeimages.com/images/premium/large-thumbs/1695/16954158-retro-arcade-machine.jpg">
+          <div class="card-section">
+            <h4 class="smaller-text"><%=arcade.name%></h4>
+            <h5 class="arcade-info"><%=arcade.street1%></h5>
+            <h5 class="arcade-info"><%=arcade.street2%></h5>
+            <h5 class="arcade-info"><%=arcade.city%></h5>
+            <h5 class="arcade-info"><%=arcade.state%></h5>
+            <h5 class="arcade-info"><%=arcade.zip%></h5>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+<div class="row">
+    <div class="small-6 small-offset-3 columns">
+        <div class="card">
+          <div class="card-section">
+
+            <h5 class="arcade-info">Quantity: <%=@gamecount%></h5>
+            <h5 class="arcade-info">Working: <%=@game.working?%></h5> <!-- needs to be arcadegame class when model issue is fixed -->
+        </div>
+      </div>
+  </div>
+</div>
+<% end %>
+
+
+
+<% end %>

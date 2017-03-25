@@ -13,10 +13,10 @@ class GamesController < ApplicationController
   def create
     @arcade = Arcade.find(params[:arcade_id])
     @game = @arcade.games.build(game_params)
-
+    if Game.exists?(name: @game.name)
+      @game = Game.find_by name: @game.name
+    end
     if @game.save
-      # if Game.where(:name => @arcade.games.name).blank?
-      # binding.pry
       @arcade.games << @game
       flash[:notice] = "Game added successfully"
       redirect_to arcade_path(@arcade.id)
@@ -28,12 +28,13 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
+    @arcadegames = Arcadegame.where(game_id: @game.id)
   end
 
   private
 
   def game_params
-    params.require(:game).permit(:name, :quantity, :working?)
+    params.require(:game).permit(:name, :quantity, :working)
   end
 
   def authorize_user

@@ -13,7 +13,6 @@ class ArcadesController < ApplicationController
     @arcade = Arcade.find(params[:id])
     @arcadegames = Arcadegame.where(arcade_id: @arcade.id)
     @game = Game.new
-    @games = @arcade.games #.order(created_at: :desc)
   end
 
   def create

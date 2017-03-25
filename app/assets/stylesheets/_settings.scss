@@ -613,10 +613,10 @@ $tooltip-radius: $global-radius;
 // -----------
 
 $topbar-padding: 0.5rem;
-$topbar-background: $light-gray;
+$topbar-background: $white;
 $topbar-submenu-background: $topbar-background;
 $topbar-title-spacing: 0.5rem 1rem 0.5rem 0;
-$topbar-input-width: 200px;
+$topbar-input-width: 250px;
 $topbar-unstack-breakpoint: medium;
 
 // Background color for the top bar
@@ -624,6 +624,7 @@ $topbar-bg-color: rgba(255, 255 , 255, 0);
 // $topbar-bg: $topbar-bg-color;
 // Height and margin
 $topbar-height: rem-calc(70);
+
 // $topbar-margin-bottom: 0;
 // Controlling the styles for the title in the top bar
 // $topbar-title-weight: $font-weight-normal;

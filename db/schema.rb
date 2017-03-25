@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20170320101746) do
   create_table "games", force: :cascade do |t|
     t.string   "name",                      null: false
     t.integer  "quantity",   default: 1
-    t.boolean  "working?",   default: true
+    t.boolean  "working",    default: true
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
