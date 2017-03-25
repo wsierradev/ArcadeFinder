@@ -1,36 +1,46 @@
-<%= form_for (@arcade) do |f| %>
-<% if arcade.errors.any? %>
- <div id="error_explanation">
-   <h2><%= pluralize(arcade.errors.count, "error") %> prohibited this item from being saved:</h2>
+<div class="main-content main-content-bg">
+<body>
+<div class="row">
+  <br>
+  <h1 class="bit-text arcade-header"> New Arcade Form </h1>
+  <br>
+    <div class="small-6 small-centered columns">
+      <%= form_for (@arcade) do |f| %>
+      <% if arcade.errors.any? %>
+       <div id="error_explanation">
+         <h2><%= pluralize(arcade.errors.count, "error") %> prohibited this item from being saved:</h2>
+         <ul>
+           <% arcade.errors.full_messages.each do |message| %>
+             <li><%= message %></li>
+           <% end %>
+         </ul>
+       </div>
+       <% end %>
+      <div class="smaller-text">
+       <%= f.label :name %>
+       <%= f.text_field :name %>
+       <%= f.label :street1 %>
+       <%= f.text_field :street1 %>
+       <%= f.label :street2 %>
+       <%= f.text_field :street2 %>
+       <%= f.label :city %>
+       <%= f.text_field :city %>
+       <%= f.label :state %>
+       <%= f.select :state, ['AL','AK','AZ',
+      	'AR','CA','CO','CT','DE','FL','GA',
+      	'HI','ID','IL','IN','IA','KS','KY',
+      	'LA','ME','MD','MA','MI','MN','MS',
+      	'MO','MT','NE','NV','NH','NJ','NM',
+      	'NY','NC','ND','OH','OK','OR','PA',
+      	'RI','SC','SD','TN','TX','UT','VT',
+      	'VA','WA','WV','WI','WY']%>
+       <%= f.label :zip %>
+       <%= f.text_field :zip %>
+       </div>
 
-   <ul>
-     <% arcade.errors.full_messages.each do |message| %>
-       <li><%= message %></li>
-     <% end %>
-   </ul>
- </div>
- <% end %>
-<div class="smaller-text">
- <%= f.label :name %>
- <%= f.text_field :name %>
- <%= f.label :street1 %>
- <%= f.text_field :street1 %>
- <%= f.label :street2 %>
- <%= f.text_field :street2 %>
- <%= f.label :city %>
- <%= f.text_field :city %>
- <%= f.label :state %>
- <%= f.select :state, ['AL','AK','AZ',
-	'AR','CA','CO','CT','DE','FL','GA',
-	'HI','ID','IL','IN','IA','KS','KY',
-	'LA','ME','MD','MA','MI','MN','MS',
-	'MO','MT','NE','NV','NH','NJ','NM',
-	'NY','NC','ND','OH','OK','OR','PA',
-	'RI','SC','SD','TN','TX','UT','VT',
-	'VA','WA','WV','WI','WY']%>
- <%= f.label :zip %>
- <%= f.text_field :zip %>
- </div>
-
- <%= f.submit "Add Arcade", class: "smaller-text"%>
-<% end %>
+       <%= f.submit "Add Arcade", class: "smaller-text button expanded"%>
+      <% end %>
+    </div>
+  </div>
+</body>
+</div>
