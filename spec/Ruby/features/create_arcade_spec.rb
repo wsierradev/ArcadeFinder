@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-
 feature "User creates new arcade" do
   let!(:user) { FactoryGirl.create(:user) }
 
