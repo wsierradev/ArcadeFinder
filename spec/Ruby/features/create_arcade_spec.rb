@@ -12,6 +12,8 @@ feature "User creates new arcade" do
     fill_in 'Street2', with: "apt nil"
     fill_in 'City', with: "Fakesville"
     fill_in 'Zip', with: "11111"
+
+
     click_button 'Add Arcade'
 
     expect(page).to have_content("Item added successfully")
@@ -21,8 +23,9 @@ feature "User creates new arcade" do
     expect(page).to have_content("Fakesville")
     expect(page).to have_content("AL")
     expect(page).to have_content("11111")
-    expect(page).to_not have_content("errors prohibited this item from being")
+    expect(page).to_not have_content("errors prohibited this item from being saved:")
     expect(page).to_not have_content("can't be blank")
+
 
   end
 
