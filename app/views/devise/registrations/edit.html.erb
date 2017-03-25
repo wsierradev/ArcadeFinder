@@ -1,7 +1,12 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="main-content main-content-bg">
+<body>
+<div class="row">
+    <div class="small-6 small-offset-3 columns">
+<h2 class= "arcade-header smaller-text">Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
+  <div class="smaller-text">
 
   <div class="field">
     <%= f.label :email %><br />
@@ -32,12 +37,19 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Update" %>
+    <%= f.submit "Update",class: "smaller-text button expanded" %>
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
+<h3 class="smaller-text">Cancel my account</h3>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), class: "smaller-text button expanded", data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
+</div>
+
+</div>
+</div>
+<br>
+</body>
+</div>
