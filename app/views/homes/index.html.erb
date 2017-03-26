@@ -1,18 +1,39 @@
 <div class="main-content main-content-bg">
-<body>
-<div class="row">
-<div style="position: top; z-index: -90; width: 100%; height: auto">
-<iframe id="myVideo" frameborder="0" height="75%" width="100%"
-  src="https://youtube.com/embed/BObBUT5iQaU?showinfo=0&wmode=transparent&rel=0&autoplay=1&controls=0&?modestbranding=1">
-</iframe>
-<script>let myVideo =  iframe.getElementById('myVideo');
-myVideo.mute();</script>
+  <div id="muteYouTubeVideoPlayer"></div>
+    <script async src="https://www.youtube.com/iframe_api"></script>
+    <script>
+     function onYouTubeIframeAPIReady() {
+      var player;
+      player = new YT.Player('muteYouTubeVideoPlayer', {
+        videoId: 'BObBUT5iQaU', // YouTube Video ID
+        width: "100%",               // Player width (in px)
+        height: "75%",              // Player height (in px)
+        playerVars: {
+          autoplay: 1,        // Auto-play the video on load
+          controls: 0,        // Show pause/play buttons in player
+          showinfo: 0,        // Hide the video title
+          modestbranding: 1,  // Hide the Youtube Logo
+          loop: 1,            // Run the video in a loop
+          fs: 0,              // Hide the full screen button
+          cc_load_policy: 0, // Hide closed captions
+          iv_load_policy: 3,  // Hide the Video Annotations
+          autohide: 1         // Hide video controls when playing
+        },
+        events: {
+          onReady: function(e) {
+            e.target.mute();
+          }
+        }
+      });
+     }
 
-</div>
+     // Written by @labnol
+    </script>
+
 <br>
-<h4 class="arcade-header smaller-text">"You are here, and it’s beautiful, and escaping isn’t always something bad." Delilah, <i>Firewatch</i><h4>
+<br>
 
-</div>
-</body>
-</br>
+<div id="banana" class="arcade-header smaller-text">
+      This text will be replaced by ReactDOM
+    </div>
 </div>

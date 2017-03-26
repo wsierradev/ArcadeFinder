@@ -1,4 +1,4 @@
-class Api::V1::CardsController < ApplicationController
+class Api::V1::ArcadesController < ApplicationController
   def index
     render json: Arcade.all
   end

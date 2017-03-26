@@ -15,8 +15,8 @@
  *= require foundation_and_overrides
 
  */
-#myvideo{
-  margin-top: -30px
+#muteYouTubeVideoPlayer{
+  margin-top: -40px
 }
 .right {
   float: right;
