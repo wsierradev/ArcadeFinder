@@ -1,8 +1,7 @@
 <div class="main-content main-content-bg">
-<div class="row">
-  <div class="small-offset-1 medium-5 columns" style="margin-left: -6px;">
-    <div style="display: block; margin: 0 auto;" class="column">
-      <h1 class="smaller-text"><%=@arcade.name.split('-').map(&:titleize).join('-')%></h1>
+  <div class="row large-up-2 small-up-1 medium-up-1 ">
+    <div class="column column-block">
+      <h2 class="smaller-text"><%=@arcade.name.split('-').map(&:titleize).join('-')%></h2>
         <div class="card">
           <img src="http://images.freeimages.com/images/premium/large-thumbs/1695/16954158-retro-arcade-machine.jpg">
           <div class="card-section smaller-text">
@@ -15,14 +14,13 @@
         </div>
       </div>
     </div>
-  </div>
 </div>
 
 <br>
 
 <div class="main-content main-content-bg">
 <div class="row">
-  <h1 class="smaller-text" style="margin-left: 24px;">Games<span class="right" style="margin-right: 11px">Working?</span></h1>
+  <h2 class="smaller-text" style="margin-left: 24px;">Games<span class="right" style="margin-right: 11px">Working?</span></h2>
 
     <div style="margin-left: 20px;">
         <% unless @arcadegames.all.empty? %>
