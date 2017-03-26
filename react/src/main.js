@@ -1,6 +1,16 @@
 import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import ArcadeList from './components/ArcadeList';
+
+$(function() {
+  if (document.getElementById('main-app')) {
+    ReactDOM.render(
+      <ArcadeList />,
+      document.getElementById('main-app')
+    );
+  };
+});
 
 let headerElement = (
   <h1 classname="smaller-text arcade-header">

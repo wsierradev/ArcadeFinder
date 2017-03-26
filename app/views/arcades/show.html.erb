@@ -25,7 +25,7 @@
     <div style="margin-left: 20px;">
         <% unless @arcadegames.all.empty? %>
           <%@arcadegames.all.select(:game_id).distinct.each do |arcadegame| %>
-            <p class=smaller-text>
+            <p class="smaller-text">
               <%= link_to "#{arcadegame.game.name.split('-').map(&:titleize).join('-')}", game_path(arcadegame.game_id), class: "button" %>
                 <span class="right" style="margin-right: 20px"><%=@arcadegames.select{|num| num.game_id == arcadegame.game_id}.uniq.count%>
               <%=arcadegame.game.working?%></span></p>
