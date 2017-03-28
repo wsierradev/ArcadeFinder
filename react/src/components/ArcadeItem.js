@@ -8,7 +8,7 @@ const ArcadeListItem = (props) => {
       <div className="card">
       <img src={picture} className="image"/>
         <div className="card-section">
-          <h4><a href={`https://arcade-finder.herokuapp.com/items/` + props.id}>{props.name}</a></h4>
+          <h4><a href={`https://arcade-finder.herokuapp.com/arcades/` + props.id}>{props.name}</a></h4>
         </div>
       </div>
     </div>

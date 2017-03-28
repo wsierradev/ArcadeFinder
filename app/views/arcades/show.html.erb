@@ -5,11 +5,8 @@
         <div class="card">
           <img src="http://images.freeimages.com/images/premium/large-thumbs/1695/16954158-retro-arcade-machine.jpg">
           <div class="card-section smaller-text">
-            <h5 class="arcade-info"><%=@arcade.street1%></h5>
-            <h5 class="arcade-info"><%=@arcade.street2%></h5>
-            <h5 class="arcade-info"><%=@arcade.city%></h5>
-            <h5 class="arcade-info"><%=@arcade.state%></h5>
-            <h5 class="arcade-info"><%=@arcade.zip%></h5>
+            <%= react_component 'Arcade', {arcade: @arcade}%>
+
           </div>
         </div>
       </div>

@@ -2,7 +2,6 @@ class ArcadesController < ApplicationController
   before_action :authorize_user, except: [:index, :show]
   def index
     @arcades = Arcade.all
-    render json: @arcades
     @states = @arcades.map { |arcade| arcade.state }.sort.uniq
   end
 

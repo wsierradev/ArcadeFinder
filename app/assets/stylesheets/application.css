@@ -15,6 +15,22 @@
  *= require foundation_and_overrides
 
  */
+
+ .react-buttons {
+   font-family: 'Press Start 2P', cursive;
+   color: white;
+   background-color: #2a81ad;
+   padding: 15px 30px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 16px;
+   margin-bottom: 10px;
+   width: 450px !important;
+   border-radius: 2px;
+   box-shadow: gray 4px 4px;
+   margin-left: -22px;
+  }
 #muteYouTubeVideoPlayer{
   margin-top: -40px
 }
@@ -179,4 +195,5 @@ body { margin: auto; }
   -webkit-border-radius: 6px;
   border-radius: 6px;
   border-radius: 6px;
+  height: auto
 }
