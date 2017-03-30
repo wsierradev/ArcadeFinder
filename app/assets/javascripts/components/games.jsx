@@ -27,7 +27,7 @@ class Games extends React.Component {
           <ul>
         {filteredGames.map(function(game){
           return(
-            <li key={game.id}> <a href={"/games/" + game.id}>{game.name}</a></li>
+          <li key={game.id}> <a href={"/games/" + game.id}> <button className="react-buttons" type="button">{game.name}</button></a></li>
           )
         })}
         </ul>

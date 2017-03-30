@@ -3,6 +3,8 @@ class ArcadesController < ApplicationController
   def index
     @arcades = Arcade.all
     @states = @arcades.map { |arcade| arcade.state }.sort.uniq
+    @addresses = @arcades.map { |arcade| arcade.street1 }.sort.uniq
+
   end
 
   def new

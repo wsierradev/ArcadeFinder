@@ -18,6 +18,10 @@ class Arcades extends React.Component {
 
       }
   );
+  let arcadeStates = filteredArcades.map(arcade => {
+        return arcade.state
+      }
+  );
     return (
     <div>
     <input type="text"
@@ -25,13 +29,15 @@ class Arcades extends React.Component {
       value={this.state.search}
       onChange={this.updateSearch.bind(this)}/>
       <ul>
-    {filteredArcades.map(arcade => {
-          arcadeState = arcade.state
+
+    {
+    filteredArcades.map(arcade => {
           return([
-          <h1>{arcadeState}</h1>,
+          <h1>{arcade.state}</h1>,
           <li key={arcade.id}> <a href={"/arcades/" + arcade.id}> <button className="react-buttons" type="button">{arcade.name}</button></a></li>
           ])
-        })}
+})
+}
         </ul>
         </div>
     )

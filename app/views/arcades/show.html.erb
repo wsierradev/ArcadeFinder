@@ -10,6 +10,11 @@
           </div>
         </div>
       </div>
+      <div class="column column-block">
+
+  <div id="map" style="height:585px;"></div>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBo78A7iQ0vWbvy957lQOcOV7z4GaYtyi8&callback=myMap"></script>
+        </div>
     </div>
 </div>
 
@@ -41,3 +46,77 @@
     </div>
   </div>
 </div>
+    <script>
+    var geocoder;
+    var map;
+    var styles = [
+    {
+        "stylers": [
+            {
+                "hue": "#007fff"
+            },
+            {
+                "saturation": 89
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "stylers": [
+            {
+                "color": "#dbfff4"
+            }
+        ]
+    },
+    {
+        "featureType": "administrative.country",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    }
+];
+    function initialize() {
+      geocoder = new google.maps.Geocoder();
+      var latlng = new google.maps.LatLng(0, 150.644);
+      var mapOptions = {
+        zoom: 17,
+        center: latlng,
+        styles: styles
+      }
+      map = new google.maps.Map(document.getElementById('map'), mapOptions);
+      codeAddress('<%=@arcade.street1%>')
+
+    }
+
+    function codeAddress(address) {
+      geocoder.geocode( { 'address': address}, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+          map.setCenter(results[0].geometry.location);
+          var infowindow = new google.maps.InfoWindow({
+          content: '<a href="<%=@arcade.id%>">testy</a>'
+          });
+          var image = 'http://pixeljoint.com/files/icons/mariosmushroom.png';
+
+          var marker = new google.maps.Marker({
+              map: map,
+              icon: image,
+              animation: google.maps.Animation.DROP,
+              position: results[0].geometry.location
+          });
+          marker.addListener('click', function() {
+          infowindow.open(map, marker);
+          });
+        } else {
+          alert('Geocode was not successful for the following reason: ' + status);
+        }
+      });
+    }
+
+    google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBo78A7iQ0vWbvy957lQOcOV7z4GaYtyi8&callback=initMap">
+    </script>
