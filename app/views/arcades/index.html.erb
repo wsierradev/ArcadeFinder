@@ -87,10 +87,10 @@ function initialize() {
 
       for (let i = 0; i < addresses.length; i++) {
 
-          $.getJSON('https://maps.googleapis.com/maps/api/geocode/json?address='+addresses[i]+'&sensor=false', null, function (data) {
+          $.getJSON('http://maps.googleapis.com/maps/api/geocode/json?address='+addresses[i]+'&sensor=false', null, function (data) {
               let p = data.results[0].geometry.location
               let latlng = new google.maps.LatLng(p.lat, p.lng);
-              let image = 'https://pixeljoint.com/files/icons/mariosmushroom.png';
+              let image = 'http://pixeljoint.com/files/icons/mariosmushroom.png';
               let address = addresses[i];
               marker = new google.maps.Marker({
                   position: latlng,
@@ -115,5 +115,5 @@ function initialize() {
 google.maps.event.addDomListener(window, 'load', initialize);
 </script>
 <script async defer
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBo78A7iQ0vWbvy957lQOcOV7z4GaYtyi8&libraries=places&callback=initMap">
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBo78A7iQ0vWbvy957lQOcOV7z4GaYtyi8&libraries=places">
 </script>
