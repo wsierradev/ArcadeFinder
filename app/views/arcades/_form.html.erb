@@ -19,8 +19,8 @@
       <div class="smaller-text">
        <%= f.label :name %>
        <%= f.text_field :name %>
-       <%= f.label :street1 %>
-       <%= f.text_field :street1 %>
+       <%= f.label :street1, id: 'autocomplete'  %>
+       <%= f.text_field :street1, id: 'autocomplete' %>
        <%= f.label :street2 %>
        <%= f.text_field :street2 %>
        <%= f.label :city %>
@@ -44,3 +44,14 @@
   </div>
 </body>
 </div>
+<script>
+function initialize() {
+
+    new google.maps.places.Autocomplete(
+    (document.getElementById('autocomplete')), {
+        types: ['geocode']
+    });
+}
+
+initialize();
+</script>

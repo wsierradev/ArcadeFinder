@@ -47,9 +47,9 @@
   </div>
 </div>
     <script>
-    var geocoder;
-    var map;
-    var styles = [
+    let geocoder;
+    let map;
+    let styles = [
     {
         "stylers": [
             {
@@ -80,8 +80,8 @@
 ];
     function initialize() {
       geocoder = new google.maps.Geocoder();
-      var latlng = new google.maps.LatLng(0, 150.644);
-      var mapOptions = {
+      let latlng = new google.maps.LatLng(0, 150.644);
+      let mapOptions = {
         zoom: 17,
         center: latlng,
         styles: styles
@@ -95,12 +95,12 @@
       geocoder.geocode( { 'address': address}, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
           map.setCenter(results[0].geometry.location);
-          var infowindow = new google.maps.InfoWindow({
+          let infowindow = new google.maps.InfoWindow({
           content: '<a href="<%=@arcade.id%>">testy</a>'
           });
-          var image = 'http://pixeljoint.com/files/icons/mariosmushroom.png';
+          let image = 'http://pixeljoint.com/files/icons/mariosmushroom.png';
 
-          var marker = new google.maps.Marker({
+          let marker = new google.maps.Marker({
               map: map,
               icon: image,
               animation: google.maps.Animation.DROP,

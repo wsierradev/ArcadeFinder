@@ -2,8 +2,14 @@ class ArcadesController < ApplicationController
   before_action :authorize_user, except: [:index, :show]
   def index
     @arcades = Arcade.all
-    @states = @arcades.map { |arcade| arcade.state }.sort.uniq
-    @addresses = @arcades.map { |arcade| arcade.street1 }.sort.uniq
+    @names = @arcades.map { |arcade| arcade.name }
+    @addresses = @arcades.map { |arcade| arcade.street1 }
+    @cities = @arcades.map { |arcade| arcade.city }
+    @states = @arcades.map { |arcade| arcade.state }
+    @zips = @arcades.map { |arcade| arcade.zip }
+    @ids = @arcades.map { |arcade| arcade.id }
+    @gamescount = @arcades.map { |arcade| arcade.games.count }
+
 
   end
 

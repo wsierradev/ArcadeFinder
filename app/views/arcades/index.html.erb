@@ -36,9 +36,9 @@
 </body>
 </div>
 <script>
-var geocoder;
-var map;
-var styles = [
+let geocoder;
+let map;
+let styles = [
 {
     "stylers": [
         {
@@ -68,25 +68,31 @@ var styles = [
 }
 ];
 infowindow = new google.maps.InfoWindow();
-
 function initialize() {
   geocoder = new google.maps.Geocoder();
-  var latlng = new google.maps.LatLng(0, 150.644);
-  var mapOptions = {
+  let latlng = new google.maps.LatLng(37.09024, -95.712891);
+  let mapOptions = {
     zoom: 4,
     center: latlng,
     styles: styles
   }
   map = new google.maps.Map(document.getElementById('map'), mapOptions);
-  map.setCenter(new google.maps.LatLng(37.09024, -95.712891));
-  var addresses =   <%= @addresses.inspect.html_safe %>;
-      for (i = 0; i < addresses.length; i++) {
+  let names =   <%= @names.inspect.html_safe %>;
+  let addresses =   <%= @addresses.inspect.html_safe %>;
+  let cities =   <%= @cities.inspect.html_safe %>;
+  let states =   <%= @states.inspect.html_safe %>;
+  let zips =   <%= @zips.inspect.html_safe %>;
+  let ids =   <%= @ids.inspect.html_safe %>;
+  let gamescount = <%= @gamescount .inspect.html_safe %>;
+
+      for (let i = 0; i < addresses.length; i++) {
 
           $.getJSON('http://maps.googleapis.com/maps/api/geocode/json?address='+addresses[i]+'&sensor=false', null, function (data) {
-              var p = data.results[0].geometry.location
-              var latlng = new google.maps.LatLng(p.lat, p.lng);
-              var image = 'http://pixeljoint.com/files/icons/mariosmushroom.png';
-              var address = addresses[i];
+              let place_id = data.results[0].place_id
+              let p = data.results[0].geometry.location
+              let latlng = new google.maps.LatLng(p.lat, p.lng);
+              let image = 'http://pixeljoint.com/files/icons/mariosmushroom.png';
+              let address = addresses[i];
               marker = new google.maps.Marker({
                   position: latlng,
                   map: map,
@@ -94,12 +100,13 @@ function initialize() {
                   animation: google.maps.Animation.DROP,
                   icon: image
               });
-              infowindow = new google.maps.InfoWindow();
+              infowindow = new google.maps.InfoWindow(i);
               google.maps.event.addListener(marker, 'click', function() {
-                     var content = ("tesss");
+                     let content = ("<p>" + "<b>" + names[i] + "</b>" + "<br />" + addresses[i] + "<br />" + cities[i] + "   " + states[i] + ", " + zips[i] + "</p>");
 
-                     infowindow.setContent(content);
+                     infowindow.setContent(content + '<div><a href="/arcades/' + ids[i] + '"' + ">This arcade contains " + gamescount[i] + " games</a></div>");
                      infowindow.open(map, this);
+
                    });
           });
       }
