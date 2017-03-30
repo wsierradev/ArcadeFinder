@@ -13,7 +13,7 @@
       <div class="column column-block">
 
   <div id="map" style="height:585px;"></div>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBo78A7iQ0vWbvy957lQOcOV7z4GaYtyi8&callback=myMap"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBo78A7iQ0vWbvy957lQOcOV7z4GaYtyi8"></script>
         </div>
     </div>
 </div>
@@ -98,7 +98,7 @@
           let infowindow = new google.maps.InfoWindow({
           content: '<a href="<%=@arcade.id%>">testy</a>'
           });
-          let image = 'http://pixeljoint.com/files/icons/mariosmushroom.png';
+          let image = 'https://i.imgur.com/e2VQGNQ.png';
 
           let marker = new google.maps.Marker({
               map: map,
@@ -116,7 +116,4 @@
     }
 
     google.maps.event.addDomListener(window, 'load', initialize);
-    </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBo78A7iQ0vWbvy957lQOcOV7z4GaYtyi8&callback=initMap">
     </script>
