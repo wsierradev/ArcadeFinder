@@ -25,9 +25,9 @@
   <h2 class="smaller-text" style="margin-left: 24px;">Games<span class="right" style="margin-right: 11px">Working?</span></h2>
 
     <div style="margin-left: 20px;">
-        <% unless @arcadegames.all.empty? %>
-          <%@arcadegames.all.select(:game_id).distinct.each do |arcadegame| %>
-            <p class="smaller-text">
+        <% unless @sortedgames.all.empty? %>
+          <%@sortedgames.each do |arcadegame| %>
+            <p class="smaller-text underline">
               <%= link_to "#{arcadegame.game.name.split('-').map(&:titleize).join('-')}", game_path(arcadegame.game_id), class: "button" %>
                 <span class="right" style="margin-right: 20px"><%=@arcadegames.select{|num| num.game_id == arcadegame.game_id}.uniq.count%>
               <%=arcadegame.game.working?%></span></p>
@@ -87,7 +87,7 @@
         styles: styles
       }
       map = new google.maps.Map(document.getElementById('map'), mapOptions);
-      codeAddress('<%=@arcade.street1%>')
+      codeAddress('<%=@arcade.name%>' + '<%=@arcade.street1%>')
 
     }
 

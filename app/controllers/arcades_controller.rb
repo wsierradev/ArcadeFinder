@@ -20,6 +20,7 @@ class ArcadesController < ApplicationController
   def show
     @arcade = Arcade.find(params[:id])
     @arcadegames = Arcadegame.where(arcade_id: @arcade.id)
+    @sortedgames = @arcadegames.all.select(:game_id).distinct
     @game = Game.new
   end
 

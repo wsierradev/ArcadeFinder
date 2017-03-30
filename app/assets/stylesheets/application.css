@@ -15,6 +15,11 @@
  *= require foundation_and_overrides
 
  */
+ .underline {
+   border-bottom: 3.5px solid black;
+   margin-right: 33px
+ }
+
 #map{
   border-radius: 5px;
   border-color:navy;

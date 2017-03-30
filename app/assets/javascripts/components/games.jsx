@@ -13,11 +13,15 @@ class Games extends React.Component {
   render () {
     let filteredGames = this.props.games.filter(
         (game) => {
+          game
           return game.name.toLowerCase().indexOf(this.state.search.toLowerCase()
           ) !== -1;
 
         }
     );
+    filteredGames.sort(function (a, b) {
+    return a.name > b.name;
+});
     return (
         <div>
         <input type="text"

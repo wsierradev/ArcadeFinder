@@ -18,6 +18,9 @@ class Arcades extends React.Component {
 
       }
   );
+  filteredArcades.sort(function (a, b) {
+  return a.state > b.state;
+});
   let arcadeStates = filteredArcades.map(arcade => {
         return arcade.state
       }
