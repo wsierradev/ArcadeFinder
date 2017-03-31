@@ -149,6 +149,11 @@
   box-shadow: 0 4px 8px 0 lightblue;
   border-radius: 10px;
   transition: 20.6s;
+  length: 100%;
+}
+.card-section {
+  length: 100%;
+
 }
 
  body {

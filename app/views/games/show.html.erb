@@ -31,7 +31,7 @@
 <div class="column column-block">
     <%= link_to arcade_path(arcade.id) do %>
       <div class="card">
-        <img src="http://images.freeimages.com/images/premium/large-thumbs/1695/16954158-retro-arcade-machine.jpg">
+        <img src="https://maps.googleapis.com/maps/api/streetview?size=600x300&location=<%=arcade.name%>%20<%=arcade.street1%>&20<%=arcade.city%>20%<%=arcade.state%>20%<%=arcade.zip%>&fov=130&pitch=2&key=AIzaSyBo78A7iQ0vWbvy957lQOcOV7z4GaYtyi8">
         <div class="card-section">
           <h4 class="smaller-text"><%=arcade.name%></h4>
           <h5 class="arcade-info"><%=arcade.street1%></h5>
@@ -39,6 +39,7 @@
           <h5 class="arcade-info"><%=arcade.city%></h5>
           <h5 class="arcade-info"><%=arcade.state%></h5>
           <h5 class="arcade-info"><%=arcade.zip%></h5>
+          <h5 class="arcade-info">Total Games:<%=arcade.games.count%></h5>
       </div>
     </div>
 

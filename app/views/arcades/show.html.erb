@@ -2,17 +2,17 @@
   <div class="row large-up-2 small-up-1 medium-up-1 ">
     <div class="column column-block">
       <h2 class="smaller-text"><%=@arcade.name.split('-').map(&:titleize).join('-')%></h2>
+
         <div class="card">
-          <img src="http://images.freeimages.com/images/premium/large-thumbs/1695/16954158-retro-arcade-machine.jpg">
+          <img src="https://maps.googleapis.com/maps/api/streetview?size=600x485&location=<%=@arcade.name%>%20<%=@arcade.street1%>&20<%=@arcade.city%>20%<%=@arcade.state%>20%<%=@arcade.zip%>&fov=130&pitch=2&key=AIzaSyBo78A7iQ0vWbvy957lQOcOV7z4GaYtyi8">
           <div class="card-section smaller-text">
             <%= react_component 'Arcade', {arcade: @arcade}%>
-
           </div>
         </div>
       </div>
-      <div class="column column-block">
+    <div class="column column-block">
 
-  <div id="map" style="height:585px;"></div>
+  <div id="map" style="height:100%;"></div>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBo78A7iQ0vWbvy957lQOcOV7z4GaYtyi8"></script>
         </div>
     </div>
@@ -21,29 +21,30 @@
 <br>
 
 <div class="main-content main-content-bg">
-<div class="row">
-  <h2 class="smaller-text" style="margin-left: 24px;">Games<span class="right" style="margin-right: 11px">Working?</span></h2>
-
-    <div style="margin-left: 20px;">
-        <% unless @sortedgames.all.empty? %>
-          <%@sortedgames.each do |arcadegame| %>
-            <p class="smaller-text underline">
-              <%= link_to "#{arcadegame.game.name.split('-').map(&:titleize).join('-')}", game_path(arcadegame.game_id), class: "button" %>
-                <span class="right" style="margin-right: 20px"><%=@arcadegames.select{|num| num.game_id == arcadegame.game_id}.uniq.count%>
-              <%=arcadegame.game.working?%></span></p>
-          <%end%>
-      <%else%>
-      <p class="smaller-text"><%="No games yet. Be the first to add one!!!"%></p>
-      <%end%>
-    </div>
-  </div>
   <div class="row">
-      <div class="small-6 small-offset-3 columns">
-  <% if signed_in?%>
-  <h1 class=smaller-text>Add a game</h1>
-  <%= render "games/form", arcade: @arcade, game: @game %>
-  <%end%>
-    </div>
+    <h2 class="smaller-text" style="margin-left: 24px;">Games<span class="right" style="margin-right: 11px">Working?</span></h2>
+
+      <div style="margin-left: 20px;">
+          <% unless @sortedgames.all.empty? %>
+            <%@sortedgames.each do |arcadegame| %>
+              <p class="smaller-text underline">
+                <%= link_to "#{arcadegame.game.name.split('-').map(&:titleize).join('-')}", game_path(arcadegame.game_id), class: "button" %>
+                  <span class="right" style="margin-right: 20px"><%=@arcadegames.select{|num| num.game_id == arcadegame.game_id}.uniq.count%>
+                <%=arcadegame.game.working?%></span>
+              </p>
+            <%end%>
+        <%else%>
+          <p class="smaller-text"><%="No games yet. Be the first to add one!!!"%></p>
+        <%end%>
+      </div>
+  </div>
+    <div class="row">
+        <div class="small-6 small-offset-3 columns">
+    <% if signed_in?%>
+      <h1 class=smaller-text>Add a game</h1>
+      <%= render "games/form", arcade: @arcade, game: @game %>
+    <%end%>
+      </div>
   </div>
 </div>
     <script>
