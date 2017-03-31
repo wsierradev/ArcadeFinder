@@ -87,7 +87,7 @@ function initialize() {
 
       for (let i = 0; i < addresses.length; i++) {
 
-          $.getJSON('https://maps.googleapis.com/maps/api/geocode/json?address='+addresses[i]+'&sensor=false', null, function (data) {
+          $.getJSON('https://maps.googleapis.com/maps/api/geocode/json?address='+names[i]+addresses[i]+cities[i]+states[i]+zips[i]+'&sensor=false', null, function (data) {
               let p = data.results[0].geometry.location
               let latlng = new google.maps.LatLng(p.lat, p.lng);
               let image = 'https://i.imgur.com/e2VQGNQ.png';

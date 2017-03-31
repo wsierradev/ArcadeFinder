@@ -22,15 +22,19 @@
 
 <div class="main-content main-content-bg">
   <div class="row">
-    <h2 class="smaller-text" style="margin-left: 24px;">Games<span class="right" style="margin-right: 11px">Working?</span></h2>
 
       <div style="margin-left: 20px;">
           <% unless @sortedgames.all.empty? %>
+          <h2 class="smaller-text">Games<span class="right" style="margin-right: 11px">Working?</span></h2>
+
             <%@sortedgames.each do |arcadegame| %>
               <p class="smaller-text underline">
                 <%= link_to "#{arcadegame.game.name.split('-').map(&:titleize).join('-')}", game_path(arcadegame.game_id), class: "button" %>
                   <span class="right" style="margin-right: 20px"><%=@arcadegames.select{|num| num.game_id == arcadegame.game_id}.uniq.count%>
-                <%=arcadegame.game.working?%></span>
+                <%if arcadegame.game.working?%>
+                  working
+                <%end%>
+              </span>
               </p>
             <%end%>
         <%else%>
@@ -39,12 +43,15 @@
       </div>
   </div>
     <div class="row">
-        <div class="small-6 small-offset-3 columns">
     <% if signed_in?%>
-      <h1 class=smaller-text>Add a game</h1>
-      <%= render "games/form", arcade: @arcade, game: @game %>
+    <h4 class="arcade-header smaller-text" style="margin-left: 24px;">Add a game</h4>
+    </div>
+    <div class="row">
+      <div style="margin-left: 20px; margin-right: 20px;">
+
+      <%= render "games/form", arcade: @arcade, game: @game, style: "margin-left: -24px;"%>
     <%end%>
-      </div>
+  </div>
   </div>
 </div>
     <script>

@@ -11,11 +11,9 @@
  </div>
  <% end %>
 
- <%= f.label :name %>
+ <%= f.label :name, class: "smaller-text"; %>
  <%= f.text_field :name %>
- <%= f.label :quantity %>
- <%= f.text_field :quantity %>
- <%= f.label :working? %>
- <%= f.check_box :working? %>
- <%= f.submit "Add Game", class: "button expanded"%>
+ <%= f.label :working, class: "smaller-text" %>
+ <%= f.check_box :working%>
+ <%= f.submit "Add Game", class: "button expanded smaller-text"%>
  <% end %>

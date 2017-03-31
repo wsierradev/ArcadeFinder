@@ -33,14 +33,13 @@ class Arcades extends React.Component {
       onChange={this.updateSearch.bind(this)}/>
       <ul>
 
-    {
-    filteredArcades.map(arcade => {
+    {filteredArcades.map(arcade => {
           return([
-          <h1>{arcade.state}</h1>,
+          <h3 className="smaller-text">{arcade.state}</h3>,
           <li key={arcade.id}> <a href={"/arcades/" + arcade.id}> <button className="react-buttons" type="button">{arcade.name}</button></a></li>
           ])
-})
-}
+        })
+    }
         </ul>
         </div>
     )
