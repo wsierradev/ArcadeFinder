@@ -1,23 +1,21 @@
 <div class="main-content main-content-bg">
 <body>
-<div class="row">
-<div class="small-6 small-centered columns">
-<br>
 <h1 class="bit-text arcade-header">Games</h1>
-<div class="add-arcade"><%= link_to "filters go here", root_path %></div>
+
 <br>
-<% @sortedgames.each do |game| %>
+<div class="row">
+    <div class="large-12-centered small-3-centered  columns">
+      <%= react_component 'Games', {games:  @games }, class: "smaller-text arcade-header", style: "font-size: 20px;"%>
+    </div>
+  </div>
+<!-- <% @sortedgames.each do |game| %>
 <h4 class="smaller-text shadow">
   <%= link_to game.name.split('-').map(&:titleize).join('-'), game_path(game.id), class: "button expanded", style: "border-radius: 2px;"%>
 </h4>
-<%end%>
+<%end%> -->
 
 </div>
 </div>
 </body>
-<br>
-<br>
-<br>
-<br>
-</div>
+
 </div>

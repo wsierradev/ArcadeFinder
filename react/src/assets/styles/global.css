@@ -1,0 +1,10 @@
+@font-face {
+  font-family: 'Press Start 2P', cursive;
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/PressStart2P-Regular.ttf'); /* IE9 Compat Modes */
+  src: local('Press Start 2P'), local('Press Start 2P'),
+       url('../fonts/PressStart2P-Regular.ttf') format('truetype'), /* Safari, Android, iOS */}
+body {
+  font-family: 'Press Start 2P';
+}

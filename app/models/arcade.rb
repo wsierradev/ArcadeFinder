@@ -7,5 +7,5 @@ class Arcade < ApplicationRecord
   validates :street1, presence: true
   validates :city, presence: true
   validates :state, presence: true
-  validates :zip, presence: true
+  validates :zip, presence: true, length: {is: 5}
 end

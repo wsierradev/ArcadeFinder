@@ -1,48 +1,127 @@
 <div class="main-content main-content-bg">
-<div class="row">
-  <div class="small-offset-1 medium-5 columns" style="margin-left: -6px;">
-    <div style="display: block; margin: 0 auto;" class="column">
-      <h1 class="smaller-text"><%=@arcade.name.split('-').map(&:titleize).join('-')%></h1>
+  <div class="row large-up-2 small-up-1 medium-up-1 ">
+    <div class="column column-block">
+      <h2 class="smaller-text"><%=@arcade.name.split('-').map(&:titleize).join('-')%></h2>
+
         <div class="card">
-          <img src="http://images.freeimages.com/images/premium/large-thumbs/1695/16954158-retro-arcade-machine.jpg">
+          <img src="https://maps.googleapis.com/maps/api/streetview?size=600x485&location=<%=@arcade.name%>%20<%=@arcade.street1%>&20<%=@arcade.city%>20%<%=@arcade.state%>20%<%=@arcade.zip%>&fov=130&pitch=2&key=AIzaSyBo78A7iQ0vWbvy957lQOcOV7z4GaYtyi8">
           <div class="card-section smaller-text">
-            <h5 class="arcade-info"><%=@arcade.street1%></h5>
-            <h5 class="arcade-info"><%=@arcade.street2%></h5>
-            <h5 class="arcade-info"><%=@arcade.city%></h5>
-            <h5 class="arcade-info"><%=@arcade.state%></h5>
-            <h5 class="arcade-info"><%=@arcade.zip%></h5>
+            <%= react_component 'Arcade', {arcade: @arcade}%>
           </div>
         </div>
       </div>
+    <div class="column column-block">
+
+  <div id="map" style="height:100%;"></div>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBo78A7iQ0vWbvy957lQOcOV7z4GaYtyi8"></script>
+        </div>
     </div>
-  </div>
 </div>
 
 <br>
 
 <div class="main-content main-content-bg">
-<div class="row">
-  <h1 class="smaller-text" style="margin-left: 24px;">Games<span class="right" style="margin-right: 11px">Working?</span></h1>
-
-    <div style="margin-left: 20px;">
-        <% unless @arcadegames.all.empty? %>
-          <%@arcadegames.all.select(:game_id).distinct.each do |arcadegame| %>
-            <p class=smaller-text>
-              <%= link_to "#{arcadegame.game.name.split('-').map(&:titleize).join('-')}", game_path(arcadegame.game_id), class: "button" %>
-                <span class="right" style="margin-right: 20px"><%=@arcadegames.select{|num| num.game_id == arcadegame.game_id}.uniq.count%>
-              <%=arcadegame.game.working?%></span></p>
-          <%end%>
-      <%else%>
-      <p class="smaller-text"><%="No games yet. Be the first to add one!!!"%></p>
-      <%end%>
-    </div>
-  </div>
   <div class="row">
-      <div class="small-6 small-offset-3 columns">
-  <% if signed_in?%>
-  <h1 class=smaller-text>Add a game</h1>
-  <%= render "games/form", arcade: @arcade, game: @game %>
-  <%end%>
+
+      <div style="margin-left: 20px;">
+          <% unless @sortedgames.all.empty? %>
+          <h2 class="smaller-text">Games<span class="right" style="margin-right: 11px">Working?</span></h2>
+
+            <%@sortedgames.each do |arcadegame| %>
+              <p class="smaller-text underline">
+                <%= link_to "#{arcadegame.game.name.split('-').map(&:titleize).join('-')}", game_path(arcadegame.game_id), class: "button" %>
+                  <span class="right" style="margin-right: 20px"><%=@arcadegames.select{|num| num.game_id == arcadegame.game_id}.uniq.count%>
+                <%if arcadegame.game.working?%>
+                  working
+                <%end%>
+              </span>
+              </p>
+            <%end%>
+        <%else%>
+          <p class="smaller-text"><%="No games yet. Be the first to add one!!!"%></p>
+        <%end%>
+      </div>
+  </div>
+    <div class="row">
+    <% if signed_in?%>
+    <h4 class="arcade-header smaller-text" style="margin-left: 24px;">Add a game</h4>
     </div>
+    <div class="row">
+      <div style="margin-left: 20px; margin-right: 20px;">
+
+      <%= render "games/form", arcade: @arcade, game: @game, style: "margin-left: -24px;"%>
+    <%end%>
+  </div>
   </div>
 </div>
+    <script>
+    let geocoder;
+    let map;
+    let styles = [
+    {
+        "stylers": [
+            {
+                "hue": "#007fff"
+            },
+            {
+                "saturation": 89
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "stylers": [
+            {
+                "color": "#dbfff4"
+            }
+        ]
+    },
+    {
+        "featureType": "administrative.country",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    }
+];
+    function initialize() {
+      geocoder = new google.maps.Geocoder();
+      let latlng = new google.maps.LatLng(0, 150.644);
+      let mapOptions = {
+        zoom: 17,
+        center: latlng,
+        styles: styles
+      }
+      map = new google.maps.Map(document.getElementById('map'), mapOptions);
+      codeAddress('<%=@arcade.name%>' + '<%=@arcade.street1%>')
+
+    }
+
+    function codeAddress(address) {
+      geocoder.geocode( { 'address': address}, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+          map.setCenter(results[0].geometry.location);
+          let infowindow = new google.maps.InfoWindow({
+          content: '<a href="<%=@arcade.id%>">testy</a>'
+          });
+          let image = 'https://i.imgur.com/e2VQGNQ.png';
+
+          let marker = new google.maps.Marker({
+              map: map,
+              icon: image,
+              animation: google.maps.Animation.DROP,
+              position: results[0].geometry.location
+          });
+          marker.addListener('click', function() {
+          infowindow.open(map, marker);
+          });
+        } else {
+          alert('Geocode was not successful for the following reason: ' + status);
+        }
+      });
+    }
+
+    google.maps.event.addDomListener(window, 'load', initialize);
+    </script>

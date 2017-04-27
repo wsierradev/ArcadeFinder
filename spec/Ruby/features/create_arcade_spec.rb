@@ -17,11 +17,6 @@ feature "User creates new arcade" do
 
     expect(page).to have_content("Item added successfully")
     expect(page).to have_content("Pinball Place")
-    expect(page).to have_content("123 fake street")
-    expect(page).to have_content("apt nil")
-    expect(page).to have_content("Fakesville")
-    expect(page).to have_content("AL")
-    expect(page).to have_content("11111")
     expect(page).to_not have_content("errors prohibited this item")
     expect(page).to_not have_content("can't be blank")
 
